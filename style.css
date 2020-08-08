@@ -1,0 +1,856 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font: 14px;
+  letter-spacing: 0.05em;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Crimson Text', serif;
+}
+p, a {
+  font-family: 'Karla', serif;
+}
+ul {
+  list-style-type: none;
+}
+a:hover {
+  text-decoration: none;
+}
+/*Arrow GoToTop Starts*/
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  color: Black;
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 2px 8px 2px 8px;
+  border-radius: 10px; /* Rounded corners */
+  font-size: 28px; /* Increase font size */
+   transition: all 400ms ease;
+}
+#myBtn:hover {
+  color: rgb(87, 52, 0);
+}
+/*Arrow GoToTop Ends*/
+
+/*NavBar Styles Starts*/
+#book {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    color: black;
+    border-radius: 1px;
+    padding: 12px 15px 12px 15px;
+    background: transparent;
+    border: 1px solid #b9b9b9;
+    text-indent: 2px;
+    transition: all 400ms ease;
+}
+#book:hover {
+  border: 1px solid #B38A4C;
+  color: #B38A4C;
+}
+/*NavBar Book Button*/
+a.nav-link {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin: 12px;
+}/*NavBar Spacing*/
+
+nav.navbar {
+  text-align: center;
+}
+a.nav-link {
+  margin: 6px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);;
+  width: 30%;
+  margin: 0 auto;
+}
+/*NavBar Endss*/
+
+/*Header Button Starts*/
+  .btn {
+    display: inline-block;
+    padding: 13px 20px;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    background: transparent;
+    border: 1px solid #e1e1e1;
+    font: 12px/1.2 "Karla", sans-serif;
+    letter-spacing: 0.4em;
+    text-align: center;
+    text-indent: 2px;
+    text-transform: uppercase;
+    transition: color 0.1s linear 0.05s;
+  }
+  .btn::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #e1e1e1;
+    z-index: 1;
+    opacity: 0;
+    transition: height 0.2s ease, top 0.2s ease, opacity 0s linear 0.2s;
+  }
+  .btn::after {
+    transition: border 0.1s linear 0.05s;
+  }
+  .btn .btn-inner {
+    position: relative;
+    z-index: 2;
+  }
+  .btn:hover {
+    color: #373737;
+    transition: color 0.1s linear 0s;
+  }
+  .btn:hover::before {
+    top: 0;
+    height: 100%;
+    opacity: 1;
+    transition: height 0.2s ease, top 0.2s ease, opacity 0s linear 0s;
+  }
+  .btn:hover::after {
+    border-color: #373737;
+    transition: border 0.1s linear 0s;
+  }
+
+/*Header Button Ends*/
+
+/*SlideShow Starts*/
+  .slideshow {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+  }
+  .slideshow .slideshow-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .slideshow .slides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  .slideshow .slide {
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .slideshow .slide.is-active {
+    display: block;
+  }
+  .slideshow .slide.is-loaded {
+    opacity: 1;
+  }
+  .slideshow .slide .caption {
+    padding: 0 100px;
+  }
+  .slideshow .slide .image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    z-index: 1;
+    background-size: cover;
+    image-rendering: optimizeQuality;
+  }
+  .slideshow .slide .image-container::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .slideshow .slide .image {
+    width: 100%;
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+  }
+  .slideshow .slide-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .slideshow .slide .title {
+    margin: 0 auto 15px;
+    max-width: 1000px;
+    font: 300 30px/1.2 "Karla", sans-serif;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+  }
+  .slideshow .slide .text {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1000px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .slideshow .slide .btn {
+    margin: 15px 0 0;
+    border-color: #fff;
+  }
+  .slideshow .slide .btn::before {
+    background: #fff;
+  }
+  .slideshow .pagination {
+    position: absolute;
+    bottom: 35px;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    cursor: default;
+    z-index: 2;
+    text-align: center;
+  }
+  .slideshow .pagination .item {
+    display: inline-block;
+    padding: 15px 5px;
+    position: relative;
+    width: 46px;
+    height: 32px;
+    cursor: pointer;
+    text-indent: -999em;
+    z-index: 1;
+  }
+  .slideshow .pagination .item + .page {
+    margin-left: -2px;
+  }
+  .slideshow .pagination .item::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 15px;
+    left: 25px;
+    width: 36px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    transition: background 0.2s ease;
+  }
+  .slideshow .pagination .item::after {
+    width: 0;
+    background: #fff;
+    z-index: 2;
+    transition: width 0.2s ease;
+  }
+  .slideshow .pagination .item:hover::before, .slideshow .pagination .item.is-active::before {
+    background-color: #fff;
+  }
+  .slideshow .arrows .arrow {
+    margin: -33px 0 0;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    z-index: 3;
+  }
+  .slideshow .arrows .prev {
+    left: 0px;
+  }
+  .slideshow .arrows .prev:hover .svg {
+    left: -10px;
+  }
+  .slideshow .arrows .next {
+    right: 0px;
+  }
+  .slideshow .arrows .next:hover .svg {
+    left: 10px;
+  }
+  .slideshow .arrows .svg {
+    position: relative;
+    left: 0;
+    width: 14px;
+    height: 26px;
+    fill: #fff;
+    transition: left 0.2s ease;
+  }
+/*SlideShow Ends*/
+
+/*ABitAboutUs Starts*/
+
+.aboutBtnClass:hover {
+border: 1px solid #B38A4C;
+color: #B38A4C;
+}
+
+.card {
+  box-shadow: 0 30px 50px 0 rgba(1,1,1,.15);
+
+  margin-bottom: 16px;
+  border: none;
+}
+.about {
+  color: #191919 ; /*rgb(87, 52, 0)*/
+  margin-top: 76px;
+  margin-bottom: 36px;
+  line-height: 1.35em;
+  font-weight: 500;
+}
+#about-section {
+  height: 355px;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.about2 {
+  color: rgb(87, 52, 0);
+  line-height: 1.35em;
+  font-weight: 500;
+}
+.aboutp {
+  margin-top: 16px;
+  margin-bottom: 36px;
+  font: 16px "Karla", sans-serif;
+  line-height: 25px;
+  
+}
+/*AbitAboutUs Ends*/
+
+/*Contact/Forms Starts*/
+.onepage {
+  padding-top: 56px;
+}
+input {
+  margin-top: 10px;
+}
+input.form-control {
+  border: 1px solid black;
+}
+input[placeholder=Name]{
+  font: 14px/2 "Karla", sans-serif;
+}
+
+.form-btn {
+  padding: 13px 20px;
+  color: black;
+  text-decoration: none;
+  position: relative;
+  background: transparent;
+  border: 1px solid #b9b9b9;
+  font: 12px/1.2 "Karla", sans-serif;
+  letter-spacing: 0.4em;
+  text-align: center;
+  text-indent: 2px;
+  text-transform: uppercase;
+  transition: all 400ms ease;
+}
+.form-btn:hover {
+  border: 1px solid #B38A4C;
+  color: #B38A4C;
+}
+/*Parallax Images Starts*/
+.parallax {
+ background-image: url("tubAndMountains.jpg");
+ height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.parallax2 {
+  background-image: url("fjord.jpg");
+  height: 200px;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+.parallax3 {
+  background-image: url("tubWater.jpg");
+  height: 200px;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   margin-top: 25px;
+}
+
+
+
+/*Parallax Images Ends*/
+
+/*Gallery Styles Starts*/
+.addMargin {
+  width: 100%;
+}
+.galleryStyles {
+  color: rgb(87, 52, 0);
+}
+
+.galleryPadding {
+  padding-left: 15px;
+}
+
+.openGalleryBtn {
+  margin-top: 55px;
+  padding: 13px 20px;
+  color: black;
+  text-decoration: none;
+  position: relative;
+  top:10px;
+  background: transparent;
+  border: 1px solid #b9b9b9;
+  font: 12px/1.2 "Karla", sans-serif;
+  letter-spacing: 0.4em;
+  text-align: center;
+  text-indent: 2px;
+  text-transform: uppercase;
+  transition: all 400ms ease; 
+}
+
+.openGalleryBtn:hover {
+
+border: 1px solid #B38A4C;
+color: #B38A4C;
+
+}
+
+.hrPadding {
+  margin-top: 45px;
+}
+
+/*Gallery Styles Ends*/
+
+/*HotTub Styles Starts*/
+.test2 {
+  padding-bottom: 35px;
+  height: 840px;
+} 
+
+.hotTubP {
+  font: 14px/2 "Karla", sans-serif;
+}
+p {
+margin-bottom: 0;
+}
+.star {
+  color: #B38A4C;
+  margin-right: 5px;
+  font-size: 20px;
+}
+.star-left {
+  padding-left: 55px;
+  line-height: 25px;
+}
+.module {
+  position: relative;
+
+}
+.module__top {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 25px;
+}
+.module__top:before {
+    border-radius: 3px 0 0 0;
+    display: block;
+    content: "";
+    flex: 2 0 0;
+    height: 1px;
+    border-top: 1px solid #585858;
+}
+  .module__top:after {
+    border-radius: 0 3px 0 0;
+    display: block;
+    content: "";
+    flex: 2 0 0;
+    height: 1px;
+    border-top: 1px solid #585858;
+}
+.top__content {
+  height: 26px;
+  color: #B38A4C;
+  font: 12px/32px;
+  font-weight: bold;
+  overflow: hidden;
+  flex: 0 0 70px;
+  margin-top: -18px;
+  text-align: center;
+}
+p.text-monospace {
+  font-size: 11px;
+}/*Free Delivery Style*/
+
+/*HotTub Styles Ends*/
+
+/*Footer Styles Starts*/
+.footer {
+  height: 50px;
+  position: relative;
+  background-color: rgb(238, 238, 238);
+}
+.foot-text {
+  margin-top: 55px;
+  padding-top: 18px;
+}
+/*Footer Styles Ends*/
+
+/*Form Styles Starts*/
+.test {
+  height:650px;
+} 
+#exampleFormControlTextarea1 {
+  border: 1px solid black;
+}
+#contact {
+  line-height: 30px;
+}
+/*Form Styles Ends*/
+
+/*Social Media Starts*/
+.fa {
+  padding: 5px;
+  font-size: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 5px;
+  transition: ease 500ms;
+  height: 40px;
+  width: 40px;
+}
+.fa:hover {
+    opacity: 0.7;
+    color: #fff;
+}
+.fa-facebook, .fa-instagram {
+  background: black;
+  color: white;
+}
+/*Social Media Ends*/
+
+/*DropDown/Language Styles*/
+/* Dropdown Button */
+.dropbtn {
+  color: rgb(0,0,0, 0.5);
+  padding: 12px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.dropbtn:focus {
+  outline:none;
+}
+.dropbtn:hover {
+  color: black;
+}
+.dropbtn:after {
+  content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    border-color:  rgb(0,0,0, 0.5) transparent transparent transparent;
+    margin: 0 auto;
+    color: rgb(0,0,0, 0.5);
+    margin-top: 5px;
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  text-align: center;
+  display: none;
+  position: relative;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: rgb(0,0,0, 0.5);
+  padding: 8px 12px;
+  text-decoration: none;
+  display: block;
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: rgb(233, 233, 233);
+  color: black;
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+
+/*logo style*/
+img.logo {
+  width:30px;
+  height: 30px;
+}
+
+/*Two buttons*/ 
+.twoButtons {
+  text-align: center;
+  height: 150px;
+
+}
+.twoButtons a {
+  margin: 0 auto;
+  margin-bottom: 10px;
+  color: black;
+  border-radius: 1px;
+  background: transparent;
+  border: 1px solid #b9b9b9;
+  text-indent: 2px;
+  transition: all 400ms ease;
+  cursor: pointer;
+}
+
+.button1, .button2 {
+margin-right: 25px;
+padding: 12px 15px 12px 15px;
+}
+
+.button1:hover, .button2:hover {
+  border: 1px solid #B38A4C;
+  color: #B38A4C;
+}
+
+.moduleHeight {
+  height: 10vh;
+}
+
+
+/*hrClass*/
+.hrClass {
+  border-bottom: 1px solid #585858;
+  border-radius: 250px;
+}
+/*question styles*/
+.qHeading {
+font-size: 18px;
+}
+
+.qParagraph {
+  font-size: 15px;
+}
+
+
+/*Media Queries*/
+
+/*Media Queries 580 Starts*/
+@media (min-width: 580px) {
+.onepage {
+width: 50%;
+float: left;
+}/*Contact/Forms*/
+
+.twopage {
+width: 50%;
+float: right;
+}/*Contact/Forms*/
+
+.onepage, .twopage, .row {
+  margin-top: 56px;
+}/*Contact/Forms*/
+
+input {
+  margin-top: 15px;
+} /*Contact/Forms*/
+
+.form-btn {
+  width: 150px;
+  float:right;
+} /*Contact/Forms*/
+.addMargin {
+  margin-top: 15px; 
+ }/*Gallery*/
+ .twoButtons {
+  width: 60%;
+}
+.button1 {
+width: 40%;
+float: left;
+}
+.button2 {
+width: 40%;
+float: right;
+}
+}
+/*Media Queries 580 Endss*/
+
+/*Media Queries 768 Starts*/
+@media (min-width: 768px ) {
+  .test2 {
+    height: 580px;
+  }/*HotTub*/
+
+  .hotTubP {
+    width:70%;
+    margin: 0 auto;
+  }/*HotTub*/
+
+  .slideshow .slide .title {
+    font: 300 50px/1.2 "Karla", sans-serif;
+  }/*SlideShow*/
+
+.addMargin {
+  margin-top: 0; 
+ }/*Gallery*/
+
+#contact {
+  text-align: left;
+}/*Contact*/
+.parallax {
+  background-image: url("tubAndMountains.jpg");
+  height: 500px;
+  background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+ .parallax2 {
+   background-image: url("fjord.jpg");
+   height: 500px;
+   background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+ .parallax3 {
+   background-image: url("tubWater.jpg");
+   height: 500px;
+   background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 25px;
+ }
+ .galleryHeadingStyle {
+   padding-top: 150px;
+   font-size: 30px;
+ }
+ img.logo {
+  width:35px;
+  height: 35px;
+}
+.card {
+  margin-left: 15px;
+}
+.parallaxBooking {
+  background-image: url("fjord.jpg");
+  height: 100vh;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+ }
+}
+/*Media Queries 768 Ends*/
+
+/*Media Queries 991 Starts*/
+@media(min-width: 991px) {
+
+.hotTubP {
+  width:70%;
+  margin: 0 auto;
+}/*HotTub*/
+
+.star-left {
+  max-width: 100%;
+  margin: 0 auto;
+}/*HotTub*/
+
+a.nav-link {
+  margin: 10px;
+  border-bottom: none;
+  
+
+}/*Expan Nav Bar on lg size*/
+
+#omoss {
+width: 100%;
+margin-left: 0;
+}/*Om Oss make equal to navBar*/
+
+#book {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 10px;
+}/*NavBar Book Button*/
+
+.dropdown {
+  height: 0;
+}
+.dropdown-content {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+.dropdown-content a {
+  margin-left: 5px;
+  padding: 8px 2px;
+}
+.dropbtn {
+  margin-right: 16px;
+}
+.galleryHeadingStyle {
+  padding-top: 160px;
+}
+img.logo {
+  width:40px;
+  height: 40px;
+}
+.addMargin {
+  max-width: 323px;
+  max-height: 243px;
+ }
+ .card {
+margin: 0 auto;
+border: none;
+margin-bottom: 18px;
+}
+.aboutp {
+  margin-top: 0;
+}
+}
+/*Media Queries 991 Ends*/
